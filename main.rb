@@ -1,7 +1,7 @@
-require 'pry'
-require_relative 'db_config'    
 require 'sinatra'
 require 'active_record'
+require 'pry'
+require_relative 'db_config'    
 
 get '/' do
   erb :index
