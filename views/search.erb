@@ -1,0 +1,9 @@
+<%# <%binding.pry%>
+<h1>Welcome <%= current_user[:username]%>!</h1>
+<p>Check the weather in your destination today..</p>
+
+<form action="/weather_info" method="get">
+  <input name="city" type="text">
+  <button>Go</button>
+</form>
+

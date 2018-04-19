@@ -1,0 +1,19 @@
+<%# <% @weather_info.each do |info| %>
+<%# <%= info[:name]%>
+<%# <% end %>
+
+<div class="name"><p><%= @name %></p></div>
+<div class="image"><img src="<%= @img_url %>"></div>
+
+<div class="main"><p><%= @main %></p></div>
+<div class="temp"><p><%= @temp.to_i %>&deg;C</p></div>
+<div class="humidity"><p>Humidity</br> <%= @humidity %></p></div>
+
+<div class="temp_min"><p>Temp Min</br> <%= @temp_min %></p></div>
+
+<div class="temp_max"><p>Temp Max</br> <%= @temp_max %></p></div>
+
+
+<form action="/search" method="get">
+<div><button>Enter a New City</button></div>
+</form>

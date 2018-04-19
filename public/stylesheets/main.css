@@ -1,0 +1,48 @@
+.name {
+  /* border: 2px solid black; */
+  text-align: center;
+}
+
+.main {
+  /* border: 2px solid black; */
+  text-align: center;
+}
+
+.temp {
+  /* border: 2px solid black; */
+  text-align: center;
+}
+
+.humidity {
+  border: 2px solid black;
+  text-align: center;
+  width: 100px;
+  display: inline-block;
+}
+
+.temp_min {
+  border: 2px solid black;
+  text-align: center;
+  width: 100px;
+  display: inline-block;
+}
+
+.temp_max {
+  border: 2px solid black;
+  text-align: center;
+  width: 100px;
+  display: inline-block;
+}
+
+.humidity, .temp_min, .temp_max {
+ margin: 10px auto;
+ position: relative;
+
+}
+
+.image {
+  margin-left: 47%;
+}
+
+
+
