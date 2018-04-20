@@ -8,17 +8,22 @@
 
 <div class="main"><p><img src="<%= @main %>" alt=""></p></div>
 <div class="temp"><p><%= @temp.to_i %>&deg;C</p></div>
+<div class="extra_info">
 <div class="humidity"><p>Humidity</br> <%= @humidity %></p></div>
 
 <div class="temp_min"><p>Temp Min</br> <%= @temp_min %></p></div>
 
 <div class="temp_max"><p>Temp Max</br> <%= @temp_max %></p></div>
+</div>
 
 
+<div class="new_city">
 <form action="/search" method="get">
 <div><button>Enter a New City</button></div>
 </form>
+</div>
 
 <form action="/">
 <button>Logout</button>
 </form>
+</div>

@@ -5,18 +5,39 @@
 
 
 body {
-  background-image: url("https://i.pinimg.com/564x/2f/1b/38/2f1b38873c975997cbd53c6833c8bac0.jpg");
+  background-image: url("https://images.pexels.com/photos/533930/pexels-photo-533930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-repeat: no-repeat;
-  background-size: 900px, 500px;
+  background-size: cover;
   
+}
+.login {
+  position: absolute;
+  bottom: 50px;
+  font-family: 'Domine',
+  serif;
+}
+
+input {
+  border-radius: 5px;
+  border: 2px solid rgb(189, 105, 96);
+}
+
+.search {
+  position: absolute;
+  bottom: 50px;
+  font-family: 'Domine',
+  serif;
+}
+
+button {
+  border-radius: 5px;
+  border: 2px solid rgb(189, 105, 96);
 }
 
 .name {
   /* border: 2px solid black; */
   text-align: center;
   text-transform: uppercase;
-  
-
 }
 
 .main {
@@ -30,30 +51,32 @@ body {
 }
 
 .humidity {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   text-align: center;
   width: 100px;
   display: inline-block;
 }
 
 .temp_min {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   text-align: center;
   width: 150px;
   display: inline-block;
 }
 
 .temp_max {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   text-align: center;
   width: 150px;
   display: inline-block;
 }
 
 .humidity, .temp_min, .temp_max {
- margin: 10px auto;
- position: relative;
+  width: 30%;
+}
 
+.extra_info {
+  text-align: center;
 }
 
 .image {
@@ -61,10 +84,32 @@ body {
 }
 
 .name, .main, .temp, .humidity, .temp_min, .temp_max {
-  color: white;
+  color:black;
   font-family: 'Domine',
   serif;
   font-size: 20px;
   font-weight: bold;
+  padding: 10px;
 }
 
+.info {
+  background-image: url("https://images.pexels.com/photos/627823/pexels-photo-627823.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.signup {
+  position: absolute;
+  bottom: 50px;
+  font-family: 'Domine',
+  serif;
+}
+
+.main > p > img {
+  width: 15%;
+}
+
+.new_city {
+  text-align: center;
+}
