@@ -55,12 +55,11 @@ get '/signup' do
 end
 
 post '/signup' do
+  # redirect to('/search')
+  User.create(username: params[:username],
+              password: params[:password])
+              redirect to('/')
   'hello'
-  user = User.new
-  user.username = params[:username]
-  user.password = params[:password]
-  user.save
-  redirect to('/search')
 end
 
 get '/search' do

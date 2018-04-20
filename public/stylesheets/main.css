@@ -1,7 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+body {
+  background-image: url("https://i.pinimg.com/564x/2f/1b/38/2f1b38873c975997cbd53c6833c8bac0.jpg");
+  background-repeat: no-repeat;
+  background-size: 900px, 500px;
+  
+}
+
 .name {
   /* border: 2px solid black; */
   text-align: center;
-  /* background-color: red; */
+  text-transform: uppercase;
+  
+
 }
 
 .main {
@@ -24,14 +39,14 @@
 .temp_min {
   border: 2px solid black;
   text-align: center;
-  width: 100px;
+  width: 150px;
   display: inline-block;
 }
 
 .temp_max {
   border: 2px solid black;
   text-align: center;
-  width: 100px;
+  width: 150px;
   display: inline-block;
 }
 
@@ -45,5 +60,11 @@
   margin-left: 47%;
 }
 
-
+.name, .main, .temp, .humidity, .temp_min, .temp_max {
+  color: white;
+  font-family: 'Domine',
+  serif;
+  font-size: 20px;
+  font-weight: bold;
+}
 
