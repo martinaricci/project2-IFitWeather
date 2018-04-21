@@ -1,10 +1,11 @@
 <%# <%binding.pry%>
-<div class="search"><h1>Welcome <%= current_user[:username]%>!</h1>
-<p>Check the weather in your destination today..</p>
+<div class="search">
+    <h1>Welcome <%= current_user[:username]%>!</h1>
+    <p>Check the weather in your destination today..</p>
 
-<form action="/weather_info" method="post">
-  <input name="city" type="text">
-  <button>Go</button>
-</form>
+    <form action="/weather_info" method="post">
+        <input name="city" type="text">
+        <button>Go</button>
+    </form>
 </div>
 

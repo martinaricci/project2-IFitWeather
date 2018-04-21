@@ -1,31 +1,53 @@
-<%# <% @weather_info.each do |info| %>
-<%# <%= info[:name]%>
-<%# <% end %>
-
 
 <div class="info">
-<div class="name"><p><%= @name %></p></div>
-<%# <div class="image"><img src="<%= @img_url"></div> %>
+    <div class="name"><p><%= @name %></p></div>
+    <%= @weather_info['icon']%>
 
+    <% if @weather_info['icon'].downcase == 'clouds'%>
+        <div class="icon cloudy">
+            <div class="cloud"></div>
+            <div class="cloud"></div>
+        </div>
 
-<div class="main"><p><img src="<%= @main %>" alt=""></p></div>
-<div class="temp"><p><%= @temp.to_i %>&deg;C</p></div>
-<div class="extra_info">
-<div class="humidity"><p>Humidity</br> <%= @humidity %></p></div>
+    <% elsif @weather_info['icon'].downcase == 'clear' %>
+        <div class="icon sunny">
+            <div class="sun">
+                <div class="rays"></div>
+            </div>
+        </div>
 
-<div class="temp_min"><p>Temp Min</br> <%= @temp_min %></p></div>
+    <% elsif @weather_info['icon'].downcase == 'haze' %>
+        <div class="icon rainy">
+            <div class="cloud"></div>
+            <div class="rain"></div>
+        </div>
+    <% end %>
 
-<div class="temp_max"><p>Temp Max</br> <%= @temp_max %></p></div>
+    <div class="temp"><p><%= @temp.to_i %>&deg;C</p></div>
+    <div class="extra_info">
+    <div class="humidity">
+        <p> Humidity</br> <%= @humidity %></p>
+    </div>
+
+    <div class="temp_min">
+        <p>Temp Min</br> <%= @temp_min %></p>
+    </div>
+
+    <div class="temp_max">
+        <p>Temp Max</br> <%= @temp_max %></p>
+    </div>
 </div>
 
 
 <div class="new_city">
-<form action="/search" method="get">
-<div><button>Enter a New City</button></div>
-</form>
+    <form action="/search" method="get">
+        <div>
+            <button>Enter a New City</button>
+        </div>
+    </form>
 </div>
 
 <form action="/">
-<button>Logout</button>
+    <button>Logout</button>
 </form>
-</div>
+
