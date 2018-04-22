@@ -3,7 +3,8 @@
     <div class="name"><p><%= @name %></p></div>
     <div class="icon"><%= @weather_info['icon']%>
 
-    <% if @weather_info['icon'].downcase == 'clouds'%>
+    <% if @weather_info['icon'].downcase == 'clouds' %>
+    
         <div class="icon cloudy">
             <div class="cloud"></div>
             <div class="cloud"></div>
@@ -16,10 +17,29 @@
             </div>
         </div>
 
-    <% elsif @weather_info['icon'].downcase == 'haze' %>
+    <% elsif @weather_info['icon'].downcase == 'mist' || 'rain' %>
         <div class="icon rainy">
             <div class="cloud"></div>
             <div class="rain"></div>
+        </div>
+
+    <% elsif @weather_info['icon'].downcase == 'thunderstorm' %>
+    <div class="icon thunder-storm">
+        <div class="cloud"></div>
+        <div class="lightning">
+            <div class="bolt"></div>
+            <div class="bolt"></div>
+        </div>
+        </div>
+    
+    <% elsif @weather_info['icon'].downcase == 'snow' %>
+
+    <div class="icon flurries">
+        <div class="cloud"></div>
+        <div class="snow">
+            <div class="flake"></div>
+            <div class="flake"></div>
+        </div>
         </div>
     <% end %>
     </div>
