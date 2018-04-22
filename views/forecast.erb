@@ -1,7 +1,7 @@
-
 <div class="info">
+<div class="main_part">
     <div class="name"><p><%= @name %></p></div>
-    <%= @weather_info['icon']%>
+    <div class="icon"><%= @weather_info['icon']%>
 
     <% if @weather_info['icon'].downcase == 'clouds'%>
         <div class="icon cloudy">
@@ -22,32 +22,38 @@
             <div class="rain"></div>
         </div>
     <% end %>
+    </div>
 
     <div class="temp"><p><%= @temp.to_i %>&deg;C</p></div>
-    <div class="extra_info">
+
+<div class="extra_info">
     <div class="humidity">
-        <p> Humidity</br> <%= @humidity %></p>
+        <p> Humidity</br> <%= @humidity %>%</p>
     </div>
 
     <div class="temp_min">
-        <p>Temp Min</br> <%= @temp_min %></p>
+        <p>Temp Min</br> <%= @temp_min %>&deg;C</p>
     </div>
 
     <div class="temp_max">
-        <p>Temp Max</br> <%= @temp_max %></p>
+        <p>Temp Max</br> <%= @temp_max %>&deg;C</p>
     </div>
+</div>
 </div>
 
 
 <div class="new_city">
     <form action="/search" method="get">
         <div>
-            <button>Enter a New City</button>
+            <button>Enter New City</button>
         </div>
     </form>
 </div>
 
-<form action="/">
-    <button>Logout</button>
-</form>
+<div class="logout">
+    <form action="/">
+        <button>Logout</button>
+    </form>
+</div>
+</div>
 

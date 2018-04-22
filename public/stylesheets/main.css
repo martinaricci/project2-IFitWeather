@@ -2,11 +2,13 @@
   box-sizing: border-box;
 }
 
-
+body {
+  margin: 0;
+}
 
 .bg-img {
   width: 100%;
-  height: 400px;
+  height: 800px;
   background-image: url("https://images.pexels.com/photos/533930/pexels-photo-533930.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -17,19 +19,31 @@
   bottom: 50px;
   font-family: 'Domine',
   serif;
+  font-size: 20px;
 
 }
 
 input {
   border-radius: 5px;
   border: 2px solid rgb(189, 105, 96);
+  margin: 0 auto;
+  width: 180px;
+  height: 30px;
 }
 
 .search {
   position: absolute;
-  bottom: 50px;
+  bottom: 60px;
+  width: 70%;
   font-family: 'Domine',
   serif;
+  font-size: 25px;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  font-size: 13px;
 }
 
 button {
@@ -37,10 +51,11 @@ button {
   border: 2px solid rgb(189, 105, 96);
 }
 
-.name {
+.name > p {
   /* border: 2px solid black; */
   text-align: center;
   text-transform: uppercase;
+  font-size: 50px;
 }
 
 .main {
@@ -48,10 +63,19 @@ button {
   text-align: center;
 }
 
-.temp {
+.icon {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 35%;
+}
+
+.temp > p {
   /* border: 2px solid black; */
   text-align: center;
+  font-size: 30px;
 }
+
 
 .humidity {
   /* border: 2px solid black; */
@@ -86,20 +110,29 @@ button {
   margin-left: 47%;
 }
 
-.name, .main, .temp, .humidity, .temp_min, .temp_max {
-  color:black;
-  font-family: 'Domine',
-  serif;
+.name, .main, .icon, .temp, .humidity, .temp_min, .temp_max {
+  color: white;
+  font-family: 'Julius Sans One',
+  sans-serif;
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
+  border: 2px soli black;
 }
 
 .info {
-  background-image: url("https://images.pexels.com/photos/627823/pexels-photo-627823.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-image: url("https://images.pexels.com/photos/531318/pexels-photo-531318.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  height: 200%;
   background-size: cover;
   margin: 0;
-  padding: 0;
+}
+
+.main_part {
+  background-color: #161517;
+  width: 700px;
+  height: 100%;
+  margin: 0 auto;
+  border: 4px solid grey;
 }
 
 .signup {
@@ -115,11 +148,23 @@ button {
 
 .new_city {
   text-align: center;
+  height: 50px;
+  margin: 20px;
 }
 
+.new_city > form > div > button {
+  height: 50px;
+  width: 180px;
+  border: 4px solid grey;
+}
+
+.logout > form > button {
+  border: 4px solid grey;
+  margin: 20px;
+  
+}
 
 /* ICONS */
-
 
 .icon {
   position: relative;
@@ -128,6 +173,7 @@ button {
   height: 10em;
   font-size: 1em;
   /* control icon size here */
+  margin-left: 30%;
 }
 
 .cloud {
