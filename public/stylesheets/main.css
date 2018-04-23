@@ -33,7 +33,7 @@ input {
 
 .search {
   position: absolute;
-  bottom: 60px;
+  bottom: 20px;
   width: 70%;
   font-family: 'Domine',
   serif;
