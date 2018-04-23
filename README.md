@@ -17,3 +17,5 @@ Keeping things simple was the aim here. Signing up will allow you to access the 
 What I have mostly learned from this project is how to access each part of the returned JSON data from the API response and use it in different ways and how to link each path. Although my methodology needs some refining, it’s bound to get better with more practice.
 
 The application has been built using Ruby Sinatra, HTML & Css.
+
+Visit my website here: https://lit-waters-27101.herokuapp.com/
