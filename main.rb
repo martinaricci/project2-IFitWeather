@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'active_record'
-require 'pg'
+# require 'pg'
 require 'pry'
 require 'httparty'
 require_relative 'db_config'    
