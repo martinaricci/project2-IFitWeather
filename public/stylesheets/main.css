@@ -44,9 +44,6 @@ button {
   width: 100px;
   height: 30px;
   font-size: 13px;
-}
-
-button {
   border-radius: 5px;
   border: 2px solid rgb(189, 105, 96);
 }
@@ -77,38 +74,14 @@ button {
   font-size: 30px;
 }
 
-
-.humidity {
-  /* border: 2px solid black; */
-  text-align: center;
-  width: 100px;
-  display: inline-block;
-}
-
-.temp_min {
-  /* border: 2px solid black; */
-  text-align: center;
-  width: 150px;
-  display: inline-block;
-}
-
-.temp_max {
-  /* border: 2px solid black; */
-  text-align: center;
-  width: 150px;
-  display: inline-block;
-}
-
 .humidity, .temp_min, .temp_max {
   width: 30%;
+  display: inline-block;
+  text-align: center;
 }
 
 .extra_info {
   text-align: center;
-}
-
-.image {
-  margin-left: 47%;
 }
 
 .name, .main, .icon, .temp, .humidity, .temp_min, .temp_max {
@@ -144,9 +117,9 @@ button {
   font-size: 20px;
 }
 
-.main > p > img {
+/* .main > p > img {
   width: 15%;
-}
+} */
 
 .new_city {
   text-align: center;
@@ -154,7 +127,7 @@ button {
   margin: 20px;
 }
 
-.new_city > form > div > button {
+.new_city > form > button {
   height: 50px;
   width: 180px;
   border: 4px solid grey;
@@ -167,7 +140,6 @@ button {
 }
 
 /* ICONS */
-
 .icon {
   position: relative;
   display: inline-block;

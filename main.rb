@@ -38,6 +38,7 @@ get '/' do
     erb :index
 end
 
+#login
 post '/session' do
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
@@ -49,7 +50,6 @@ post '/session' do
 end
 
 get '/signup' do
-    # 'hello'
     erb :signup
 end
 
