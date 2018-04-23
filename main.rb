@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'active_record'
-# require 'pg'
+require 'pg'
 require 'pry'
 require 'httparty'
 require_relative 'db_config'    
@@ -66,8 +66,8 @@ get '/search' do
 end
 
 get '/weather_info' do
-    sql = PG.connect(dbname: 'ifitweather')
-    @weather_info = sql.exec("SELECT * FROM city_weather WHERE name ILIKE '#{params[:city]}' order by id desc;")
+    # sql = PG.connect(dbname: 'ifitweather')
+    @weather_info = ActiveRecord::Base.connection.execute("SELECT * FROM city_weather WHERE name ILIKE '#{params[:city]}' order by id desc;")
     # url = "http://api.openweathermap.org/data/2.5/weather?q=#{params[:city]}&units=metric&APPID=150fe397273b0898d4e8b500237412d9"
     # @weather_info = HTTParty.get(url)
     @weather_info = @weather_info[0]
@@ -83,8 +83,8 @@ get '/weather_info' do
 end
 
 post '/weather_info' do
-    sql = PG.connect(dbname: 'ifitweather')
-    @weather_info = sql.exec("SELECT * FROM city_weather WHERE name ILIKE '#{params[:city]}' order by id desc;")
+    # sql = PG.connect(dbname: 'ifitweather')
+    @weather_info = ActiveRecord::Base.connection.execute("SELECT * FROM city_weather WHERE name ILIKE '#{params[:city]}' order by id desc;")
 
     if @weather_info.count > 0
         @weather_info = @weather_info[0]
@@ -107,7 +107,7 @@ post '/weather_info' do
         @temp_max = @weather_info['main']['temp_max']
         sql_city = "INSERT INTO city_weather(name, icon, main, temp, humidity, temp_min, temp_max) VALUES ('#{@name}', '#{@main}', '#{@img_url}', '#{@temp}', '#{@humidity}', '#{@temp_min}', '#{@temp_max}')"
 
-        sql.exec(sql_city)
+        ActiveRecord::Base.connection.execute(sql_city)
     end
 
     redirect to('/weather_info?city=' + params[:city])
