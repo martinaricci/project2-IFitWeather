@@ -7,6 +7,7 @@ require_relative 'db_config'
 
 require_relative 'db_config'
 require_relative 'models/user'
+require_relative 'models/city_weather'
 # require_relative 'models/activities'
 
 enable :sessions
@@ -67,47 +68,58 @@ end
 
 get '/weather_info' do
     # sql = PG.connect(dbname: 'ifitweather')
-    @weather_info = ActiveRecord::Base.connection.execute("SELECT * FROM city_weather WHERE name ILIKE '#{params[:city]}' order by id desc;")
+    # @weather_info = ActiveRecord::Base.connection.execute("SELECT * FROM city_weather WHERE name ILIKE '#{params[:city]}' order by id desc;")
+    @weather_info = CityWeather.find_by("name ILIKE '#{params[:city]}'")
     # url = "http://api.openweathermap.org/data/2.5/weather?q=#{params[:city]}&units=metric&APPID=150fe397273b0898d4e8b500237412d9"
     # @weather_info = HTTParty.get(url)
-    @weather_info = @weather_info[0]
-    @name = @weather_info['name']
-    @main = @weather_info['main']
-    @img_url = "http://openweathermap.org/img/w/#{@weather_info['icon']}.png"
-    @temp = @weather_info['temp']
-    @humidity = @weather_info['humidity']
-    @temp_min = @weather_info['temp_min']
-    @temp_max = @weather_info['temp_max']
+    # City_weather.name
+    # @weather_info = @weather_info[0]
+    @name = @weather_info.name
+    @main = @weather_info.main
+    @img_url = "http://openweathermap.org/img/w/#{@weather_info.icon}.png"
+    @temp = @weather_info.temp
+    @humidity = @weather_info.humidity
+    @temp_min = @weather_info.temp_min
+    @temp_max = @weather_info.temp_max
 
     erb :forecast
 end
 
 post '/weather_info' do
     # sql = PG.connect(dbname: 'ifitweather')
-    @weather_info = ActiveRecord::Base.connection.execute("SELECT * FROM city_weather WHERE name ILIKE '#{params[:city]}' order by id desc;")
+    @weather_info = CityWeather.find_by("name ILIKE '#{params[:city]}'")
 
-    if @weather_info.count > 0
-        @weather_info = @weather_info[0]
-        @name = @weather_info['name']
-        @main = @weather_info['main']
-        @img_url = "http://openweathermap.org/img/w/#{@weather_info['icon']}.png"
-        @temp = @weather_info['temp']
-        @humidity = @weather_info['humidity']
-        @temp_min = @weather_info['temp_min']
-        @temp_max = @weather_info['temp_max']
+    if @weather_info
+        # @weather_info = @weather_info[0]
+        @name = @weather_info.name
+        @main = @weather_info.main
+        @img_url = "http://openweathermap.org/img/w/#{@weather_info.icon}.png"
+        @temp = @weather_info.temp
+        @humidity = @weather_info.humidity
+        @temp_min = @weather_info.temp_min
+        @temp_max = @weather_info.temp_max
     else
         url = "http://api.openweathermap.org/data/2.5/weather?q=#{params[:city]}&units=metric&APPID=150fe397273b0898d4e8b500237412d9"
         @weather_info = HTTParty.get(url)
-        @name = @weather_info['name'].downcase
-        @main = @weather_info['weather'][0]['main']
-        @img_url = "http://openweathermap.org/img/w/#{@weather_info['weather'][0]['icon']}.png"
-        @temp = @weather_info['main']['temp']
-        @humidity = @weather_info['main']['humidity']
-        @temp_min = @weather_info['main']['temp_min']
-        @temp_max = @weather_info['main']['temp_max']
-        sql_city = "INSERT INTO city_weather(name, icon, main, temp, humidity, temp_min, temp_max) VALUES ('#{@name}', '#{@main}', '#{@img_url}', '#{@temp}', '#{@humidity}', '#{@temp_min}', '#{@temp_max}')"
+        @name = @weather_info.name.downcase
+        @main = @weather_info.main
+        @img_url = "http://openweathermap.org/img/w/#{@weather_info.weather.icon}.png"
+        @temp = @weather_info.temp
+        @humidity = @weather_info.humidity
+        @temp_min = @weather_info.temp_min
+        @temp_max = @weather_info.temp_max
+        city = CityWeather.new
+        city.name = params[:name]
+        city.icon = params[:img_url]
+        city.main = params[:main]
+        city.temp = params[:temp]
+        city.humidity = params[:humidity]
+        city.temp_min = params[:temp_min]
+        city.temp_max = params[:temp_max]
+        city.save
+        # sql_city = "INSERT INTO city_weather(name, icon, main, temp, humidity, temp_min, temp_max) VALUES ('#{@name}', '#{@main}', '#{@img_url}', '#{@temp}', '#{@humidity}', '#{@temp_min}', '#{@temp_max}')"
 
-        ActiveRecord::Base.connection.execute(sql_city)
+        # ActiveRecord::Base.connection.execute(city)
     end
 
     redirect to('/weather_info?city=' + params[:city])
