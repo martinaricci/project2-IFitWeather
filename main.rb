@@ -67,13 +67,7 @@ get '/search' do
 end
 
 get '/weather_info' do
-    # sql = PG.connect(dbname: 'ifitweather')
-    # @weather_info = ActiveRecord::Base.connection.execute("SELECT * FROM city_weather WHERE name ILIKE '#{params[:city]}' order by id desc;")
     @weather_info = CityWeather.find_by("name ILIKE '#{params[:city]}'")
-    # url = "http://api.openweathermap.org/data/2.5/weather?q=#{params[:city]}&units=metric&APPID=150fe397273b0898d4e8b500237412d9"
-    # @weather_info = HTTParty.get(url)
-    # City_weather.name
-    # @weather_info = @weather_info[0]
     @name = @weather_info.name
     @main = @weather_info.main
     @img_url = "http://openweathermap.org/img/w/#{@weather_info.icon}.png"
@@ -86,11 +80,9 @@ get '/weather_info' do
 end
 
 post '/weather_info' do
-    # sql = PG.connect(dbname: 'ifitweather')
     @weather_info = CityWeather.find_by("name ILIKE '#{params[:city]}'")
 
     if @weather_info
-        # @weather_info = @weather_info[0]
         @name = @weather_info.name
         @main = @weather_info.main
         @img_url = "http://openweathermap.org/img/w/#{@weather_info.icon}.png"
@@ -117,9 +109,6 @@ post '/weather_info' do
         city.temp_min = params[:temp_min]
         city.temp_max = params[:temp_max]
         city.save
-        # sql_city = "INSERT INTO city_weather(name, icon, main, temp, humidity, temp_min, temp_max) VALUES ('#{@name}', '#{@main}', '#{@img_url}', '#{@temp}', '#{@humidity}', '#{@temp_min}', '#{@temp_max}')"
-
-        # ActiveRecord::Base.connection.execute(city)
     end
 
     redirect to('/weather_info?city=' + params[:city])
